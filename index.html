@@ -3,6 +3,7 @@
 	<head>
 		<title>HT Playlist</title>
 
+		<link href="css/grids.css" rel="Stylesheet" />
 		<link href="css/styles.css" rel="Stylesheet" />
 	</head>
 	<body>
@@ -11,8 +12,9 @@
 			<button id="auth">Authenticate</button>
 		</div>
 
-		<div id="main-view" class="view">
-			<div id="search">
+		<div id="main-view" class="view grid">
+
+			<div id="search-wrap" class="col-1-2">
 				<div>
 					<input type="text" id="search" />
 				</div>
@@ -23,8 +25,11 @@
 					<input type="radio" name="search-type" value="artist" /> Artist
 				</div>
 				<button type="submit" id="btn-search">Search</button>
+				<div id="search-results">
+
+				</div>
 			</div>
-			<div id="playlist-listing">
+			<div id="playlist-listing" class="col-1-2">
 
 			</div>
 		</div>
@@ -33,11 +38,28 @@
 			<script id="playlist-template" type="text/template" data-name="playlistTemplate">
 				<ul class='playlist-listing'>
 					{{#each this}}
-					<li>{{ pname }}</li>
+					<li>{{ name }}</li>
+					{{/each}}
+				</ul>
+			</script>
+
+			<script id="artist-template" type="text/template" data-name="artistTemplate">
+				<ul class='artist-listing'>
+					{{#each this}}
+					<li><a href="#" data-artistid="{{id}}">{{ name }}</a></li>
+					{{/each}}
+				</ul>
+			</script>
+
+			<script id="playlist-template" type="text/template" data-name="songTemplate">
+				<ul class='song-listing'>
+					{{#each this}}
+					<li><a href="#" data-trackid="{{id}}">{{ name }}</a></li>
 					{{/each}}
 				</ul>
 			</script>
 		</div>
+
 <!-- 
 		<h1>#Playlist</h1>
 		<div id="call-to-action">

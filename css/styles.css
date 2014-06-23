@@ -4,3 +4,7 @@
 .view.active {
 	display: block;
 }
+
+body {
+	font-family: sans-serif;
+}
